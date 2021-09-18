@@ -22,6 +22,13 @@ void creatematrix(matrix *m) {
 		m->c[i] = (node *) malloc(sizeof(node));
  		m->c[i]->down = NULL;
  		m->c[i]->right = NULL;
+ 		m->c[i]->col = -1;
+ 		m->c[i]->row = -1;
+ 	}
+ }
+void insert(matrix *m, int val, int r, int col) {
+		node *auxrow = m->r[r];
+		node *auxcol = m->c[col];
 		while (auxrow->right!=NULL && auxrow->right->col < col)
 		{
 			auxrow = auxrow->right;
